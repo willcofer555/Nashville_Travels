@@ -1,4 +1,4 @@
-import React,Component } from 'react';
+import React, { Component } from 'react';
 
 
 class Lower extends React.Component {
@@ -12,21 +12,21 @@ class Lower extends React.Component {
                         <div className="jumbotron bg-transparent innerJumbo ">
                            <div className="col">
                                <div className="col"> 
-                            <h2>Welcome <span>to Nashville Travels</span>
-                            </h2> <h6 >  Book with us and experience the difference  </h6>
+                            <h2>Welcome <span>to Nashville Travels</span></h2>
+                            <h6>Book with us and experience the difference</h6>
                         </div>
                     </div>
-                            <hr>
+                            <hr />
                             <form action="">
                             <div className="row form-group">
                                     
                                     <div className="col col-sm-6 ">
-                                        <input className="form-control" type="Date" name="date1" id="Date" placeholder="1/1/2020">
+                                        <input className="form-control" type="Date" name="date1" id="Date" placeholder="1/1/2020" />
                                         
                                     </div>
                                     <span></span>
                                     <div className="col col-sm-6 ">
-                                            <input className="form-control" type="Date" name="date2" id="Date" placeholder="1/1/2020">
+                                            <input className="form-control" type="Date" name="date2" id="Date" placeholder="1/1/2020" />
                                             
                                         </div>
                                     </div>
@@ -58,13 +58,6 @@ class Lower extends React.Component {
                         
                            </div> 
                         </div>
-
-
-
-
-
-
-
             </div>
         )
     }
