@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchBar.css';
 
 
 class Searchbar extends React.Component {
@@ -27,8 +28,6 @@ class Searchbar extends React.Component {
         //submit
 
         
-
-
     }
     
 }

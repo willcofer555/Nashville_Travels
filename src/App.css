@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+body {
+  margin:0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2, h5, h6, li, span{
+  font-family: 'Lato', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.innerJumbo {
+  height:50vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.row-content {
+  min-height:225px;
+  padding: 50px 0;
+  border-bottom: 1px ridge;
 }
 
-.App-link {
-  color: #61dafb;
+#heading {
+  width:100%;
+  padding-top:5px;
+  /*background-image: url(img/random_skyline.jpeg); */
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#contact_header {
+  width:100%;
+  padding-top:5px;
+  background:white; 
+}
+
+
+#innerJumboContainer {
+  padding:5rem;
+}
+
+#header_pic {
+  height: 52.5vh;
+}
+
+
+.av1 {
+  height:200px;
+  width:200px;
+}
+
+.checked {
+  color: orange;
 }
