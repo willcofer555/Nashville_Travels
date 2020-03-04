@@ -21,14 +21,8 @@ class PropertyList extends React.Component {
 render() {
     return(
         <div className="container">
-        
-                            
-                                  
-                                    <Property />           
-                                
-                            
-                            
-                            </div>
+                 <Property />           
+        </div>
     )
 }
 

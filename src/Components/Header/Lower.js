@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
 import './Header.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+
 
 
 class Lower extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            startDate: null,
+            endDate: null
+        }
+        
+        
+    }
 
+    
+
+
+    
 
     render() {
         return(
@@ -18,18 +36,25 @@ class Lower extends React.Component {
                         </div>
                     </div>
                             <hr />
-                            <form action="">
-                            <div className="row form-group">
+                            <form onSubmit={this.handleListings} action="submit">
+                            <div className="row mb-2">
                                     
-                                    <div className="col col-sm-6 ">
-                                        <input className="form-control" type="Date" name="date1" id="Date" placeholder="1/1/2020" />
-                                        
+                                    <div className="myContainer col">
+                                    <DateRangePicker className=""
+            
+            startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+            startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+            endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+            endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+            onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+            focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+            onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+            
+            />
+            
+                
                                     </div>
-                                    <span></span>
-                                    <div className="col col-sm-6 ">
-                                            <input className="form-control" type="Date" name="date2" id="Date" placeholder="1/1/2020" />
-                                            
-                                        </div>
+                                    
                                     </div>
                                     <div className="row form-group">
                                     
@@ -48,7 +73,6 @@ class Lower extends React.Component {
                                                     <div className="col">
                                                         <button className="btn btn-block btn-info" type="submit">Search</button>
                                                     </div>
-            
                                                 </div>
                                         </form>
                                                     
