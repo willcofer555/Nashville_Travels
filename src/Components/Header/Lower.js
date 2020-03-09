@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import Metrics from '../../utils';
 
 
 
@@ -12,14 +13,32 @@ class Lower extends React.Component {
         super(props)
         this.state = {
             startDate: null,
-            endDate: null
+            endDate: null,
+            bookings: null
         }
-        
-        
+        this.handleListings = this.handleListings.bind(this);
     }
 
-    
 
+
+    handleListings = () => {
+        if (this.startDate && this.endDate) {
+            Metrics.getBookings(this.state.startDate, this.state.endDate).then(bookings => {
+                this.setState({bookings: bookings});
+            });
+        }
+    }
+
+
+
+    componentDidMount() {
+        GoldMedalMetrics.getGoldMedals(this.state.countryName).then(medals => {
+          if(medals.length) {
+            this.setState({medals: medals});
+          }
+        });
+      }
+    
 
     
 
@@ -43,9 +62,9 @@ class Lower extends React.Component {
                                     <DateRangePicker className=""
             
             startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-            startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+            startDateId="start_date" // PropTypes.string.isRequired,
             endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-            endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+            endDateId="end_date" // PropTypes.string.isRequired,
             onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
             focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
             onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
