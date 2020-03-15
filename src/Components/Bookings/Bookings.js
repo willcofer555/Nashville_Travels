@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import { BookingList0,BookingList1,BookingList2, BookingList3, BookingList4, BookingList5} from '../ListBookings/ListBookings';
+import { BookingList,BookingList0,BookingList1,BookingList2, BookingList3, BookingList4, BookingList5} from '../ListBookings/ListBookings';
+import { Button } from 'react-bootstrap';
 import './Bookings.css';
-
-
-
-
-
-
 
 class Booking extends React.Component {
     constructor(props) {
         super(props)
-
 
         this.state = {
             bookings : []
@@ -34,11 +28,39 @@ class Booking extends React.Component {
         let a4 = <BookingList4 />
         let a5 = <BookingList5 />
         
+        propsList = [
+            {
+                name:'0',
+                address: '',
+                description:'',
+                bedBath: '',
+                rating: '',
+                imgSrc: ''
+            },
+            {
+                name:'1',
+                address: '',
+                description:'',
+                bedBath: '',
+                rating: '',
+                imgSrc: ''
+            }
+        ]
 
         let bArray = [b0,b1,b2,b3,b4,b5];
         let aArray = [a0,a1,a2,a3,a4,a5];
         
-        
+        this.props.books.map(book => {
+            let propsListing = propsList[book];
+            return (
+                <div className="row row-content align-items-end mb-5">
+                <BookingList propsListing={propsListing} >
+                <Button className="btn btn-secondary">Reserve</Button>
+                </BookingList>
+                </div>
+                
+            )
+        });
 
         this.props.books.map(book=> {
             return (aArray[book])
@@ -47,7 +69,10 @@ class Booking extends React.Component {
                  return(
                     
                     this.props.books.map(book=> {
-                    return (aArray[book])
+                    return(
+                        (aArray[book])
+
+                    ) 
         })
                     
                      
