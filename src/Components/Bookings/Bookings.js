@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { BookingList,BookingList0,BookingList1,BookingList2, BookingList3, BookingList4, BookingList5} from '../ListBookings/ListBookings';
+import { BookingList } from '../ListBookings/ListBookings';
 import { Button } from 'react-bootstrap';
+import { StrapModal } from '../Modal/StrapModal';
+import Metrics from '../../utils/metrics';
 import './Bookings.css';
 
 class Booking extends React.Component {
@@ -8,75 +10,78 @@ class Booking extends React.Component {
         super(props)
 
         this.state = {
-            bookings : []
+            bookings : [],
+            setModalShow: false,
+            start_date: this.props.start,
+            end_date:  this.props.end,
+            bookedHome: ''      
         }
+        this.hideModal = this.hideModal.bind(this);
+        this.handleReserve = this.handleReserve.bind(this);
+        }
+
+
+    hideModal = () => {
+        this.setState({setModalShow: false});    
+    }
+
+
+    handleReserve = () => {
+        Metrics.bookHome(this.state.bookedHome, this.state.start_date, this.state.end_date,);
+
     }
 
     render() {
-      
-        let b0 = false;
-        let b1 = false;
-        let b2 = false;
-        let b3 = false;
-        let b4 = false;
-        let b5 = false;
-        
-        let a0 = <BookingList0 />
-        let a1 = <BookingList1 />
-        let a2 = <BookingList2 />
-        let a3 = <BookingList3 />
-        let a4 = <BookingList4 />
-        let a5 = <BookingList5 />
-        
-        propsList = [
+        let addModalClose = () => this.setState({setModalShow: false});
+       let propsList = [
             {
                 name:'0',
-                address: '',
-                description:'',
-                bedBath: '',
-                rating: '',
-                imgSrc: ''
+                address: '212 Hemphouse Lane',
+                description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                bedBath: '4 Bed 5 Bath',
+                rating: '43',
+                imgSrc: '/path/to/img'
             },
             {
                 name:'1',
-                address: '',
-                description:'',
-                bedBath: '',
-                rating: '',
-                imgSrc: ''
+                address: '212 Hemphouse Lane',
+                description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                bedBath: '4 Bed 5 Bath',
+                rating: '43',
+                imgSrc: '../../img/modernHouse_retry.png'
+            },
+            {
+                name:'0',
+                address: '212 Hemphouse Lane',
+                description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                bedBath: '4 Bed 5 Bath',
+                rating: '43',
+                imgSrc: '../../img/modernHouse_retry.png'
             }
         ]
-
-        let bArray = [b0,b1,b2,b3,b4,b5];
-        let aArray = [a0,a1,a2,a3,a4,a5];
-        
-        this.props.books.map(book => {
-            let propsListing = propsList[book];
-            return (
-                <div className="row row-content align-items-end mb-5">
-                <BookingList propsListing={propsListing} >
-                <Button className="btn btn-secondary">Reserve</Button>
-                </BookingList>
-                </div>
-                
-            )
-        });
-
-        this.props.books.map(book=> {
-            return (aArray[book])
-        });
-
                  return(
                     
                     this.props.books.map(book=> {
+                     let propsListing = propsList[book];
                     return(
-                        (aArray[book])
-
-                    ) 
-        })
+                <div className="row row-content align-items-end mb-5">
+                <BookingList onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} propsListing={propsListing} />
+                <button onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} className="btn btn-secondary mr-5">Reserve</button>
+                <StrapModal 
+                show={this.state.setModalShow} 
+                onHide={this.hideModal}
+                reserve={this.handleReserve} 
+                address={propsListing.address} 
+                description={propsListing.description}
+                />
+                </div>
+                
+                        ) 
+                    })
+                    
                     
                      
-                )
+                        )
     }
 
 

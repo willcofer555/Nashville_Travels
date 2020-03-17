@@ -11,24 +11,26 @@ class Header extends React.Component {
         super(props)
 
         this.state = {
+            submission: 'unsent'
             
         }
-        
+        this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
+    onFormSubmit() {
+        this.setState({ submission: 'sent' });
+    }
     
 
 
     render() {
-        return(
-            <>
-            <div id="heading" className="jumbotron jumbotron-fluid bg-light">
-                <Nav />
-                <Lower />
-            </div>
-            <PropertyList />
-        </>
-        )
+            return(
+                <>
+                    <Lower/>
+            </>
+            ) 
+
+        
     }
 }
 export default Header;

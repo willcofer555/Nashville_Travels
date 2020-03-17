@@ -1,6 +1,9 @@
-var sqlite3 = require('sqlite3');
-var db =  new sqlite3.Database('./nashville_t.sqlite');
-
+var sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(':memory', (err => {
+    if (err) {
+        console.error(err.message);
+    }
+}));
 
 db.serialize(() => {
     db.run('DROP TABLE IF EXISTS Bookings');
@@ -19,7 +22,6 @@ db.serialize(() => {
         if (rows) {
             console.log(rows);
         }
-        
     })
     
 });
