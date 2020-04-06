@@ -5,4 +5,4 @@
 
 For Demo, clone repo, npm install dependencies. --> http://localhost:8001/
 
-Built using Node.js, React, Express.js
+Built using Node.js, React, Express.js, SQLite, NodeSQLite
