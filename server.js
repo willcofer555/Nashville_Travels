@@ -46,6 +46,7 @@ db.get('INSERT INTO Bookings(Property_Name,Start_Date,End_Date) VALUES ($propert
 
 
 
+
 /*app.post('/bookings',(req,res,next) => {
 start = req.query.start_date;
 end = req.query.end_date;

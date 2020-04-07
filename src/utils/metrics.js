@@ -29,6 +29,19 @@ Metrics.getBookings = (start_date, end_date) => {
       })
     })
   }
+
+  Metrics.bookUser = (homeName, start_date, end_date, email ) => {
+    let url = `${baseUrl}/bookings/${homeName}?user=${email}&start_date=${start_date}&end_date=${end_date}`;
+    return fetch(url).then(response => {
+      if (!response.ok) {
+        return new Promise(resolve => resolve(null));
+      }
+      return response.json().then(jsonResponse => {
+        const userBook = jsonResponse;
+        return userBook;
+      })
+    })
+  };
   
   Metrics.allBookings = () => {
       let url = `${baseUrl}/bookings`;

@@ -8,6 +8,7 @@ import Nav from '../Nav/Nav';
 import PropertyList from '../PropertyList/PropertyList';
 import Booking from '../Bookings/Bookings';
 import moment from 'moment';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 
 class Lower extends React.Component {
@@ -17,7 +18,7 @@ class Lower extends React.Component {
             bookings: [],
             foundBookings: false,
             submission: false,
-            startDate: moment().subtract(29, 'days'),
+            startDate: moment().subtract(3, 'days'),
             endDate: moment(),
             ranges: {
             'Today': [moment(), moment()],
@@ -31,17 +32,16 @@ class Lower extends React.Component {
         this.handleListings = this.handleListings.bind(this);
         this.handleApply = this.handleApply.bind(this);
     }
-        
+
                 
     handleListings = () => {
-        this.setState({foundBookings: true, bookings : [1,2]});
+        this.setState({foundBookings: true, bookings : [1,2]}); 
         if (this.startDate && this.endDate) {
             Metrics.getBookings(this.state.startDate, this.state.endDate).then(bookings => {
                 let bookingsState = this.state.bookings;
                 let bookingName = bookings.homeId;
                 bookingsState.push(bookingName);
             })
-            
         }
     }
 
@@ -122,6 +122,7 @@ class Lower extends React.Component {
             </>    
         )
     } else if (this.state.foundBookings) {
+        
         return (
             <>
             <Nav />
@@ -131,10 +132,10 @@ class Lower extends React.Component {
             </>
         )
     }
-
+ 
 }
 }
 
             
 
-export default Lower;
+export default withRouter(Lower);
