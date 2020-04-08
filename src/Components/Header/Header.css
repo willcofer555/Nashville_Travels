@@ -24,6 +24,14 @@ h2, h5, h6, li, span{
     
 }
 
+#deadheading {
+    width:100%;
+    padding-top:5px;
+    background-size: cover ;
+    
+}
+
+
 #contact_header {
     width:100%;
     padding-top:5px;
