@@ -1,4 +1,4 @@
-# Nashville Travels
+<h1 align='center'> Nashville Travels </h1>
 
 <p align='left'>This project is a full stack property rental app using React, Node.js and ExpressJS. It is intended to be a tool used by the administrator of Nashville Travels and a future deployment for use by client base.</p>
 
