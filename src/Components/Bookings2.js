@@ -4,7 +4,7 @@ import { StrapModal } from '../Modal/StrapModal';
 import Metrics from '../../utils/metrics';
 import { homesList } from '../../shared/properties';
 import { Modal, Col, Form } from 'react-bootstrap';
-import './Bookings.css';
+import './homes.css';
 import moment from 'moment';
 
 class Booking extends React.Component {

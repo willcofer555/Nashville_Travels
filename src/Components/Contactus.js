@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Nav from '../Nav/Nav';
-import { Row,Breadcrumb, BreadcrumbItem, Button, Form, FormGroup, Label, Input, Col, FormFeedback } from 'reactstrap';
+import Nav from './Nav';
+import { Row, Button, Label, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
@@ -80,8 +80,6 @@ class Header extends Component {
                                             maxLength: maxLength(15)
                                         }}                   
                                         />
-                                        
-
                                 </Col>  
                             </Row >
                             <Row className="form-group" row>

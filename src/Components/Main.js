@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Nav from '../Nav/Nav';
+import Nav from './Nav';
 import Lower from './Lower';
 import { Button } from 'react-bootstrap';
-import Contactus from '../Contactus/Contactus';
-import PropertyList from '../PropertyList/PropertyList';
+import Contactus from './Contactus';
+import PropertyList from './PropertyList';
 import { Switch, Route, Redirect, withRouter, useHistory } from 'react-router-dom';
 import DateTimeRangePicker from 'react-bootstrap-datetimerangepicker';
 import moment from 'moment';
-import Metrics from '../../utils/metrics';
-import Booking from '../Bookings/Bookings';
-import Locations from '../Locations/Locations';
-import './Header.css';
+import Metrics from '../utils/metrics';
+import Booking from './Bookings';
+import Locations from './Locations';
+import './homes.css';
 class Main extends React.Component {
     constructor(props) {
         super(props)
@@ -40,7 +40,6 @@ handleApply(event, picker) {
  }
 
 handleListings = () => {
-    
      this.setState({foundBookings: true});
     if (this.state.startDate && this.state.endDate) {
         let formatStart = this.state.startDate.format('YYYYMMDD');
@@ -52,7 +51,6 @@ handleListings = () => {
             //.then props.push history(search) to avoid this redirect nonsense (might use redux by then)
     })
 }}
-
     render() {
     const handleBookings = () => {
         return(
@@ -63,7 +61,6 @@ handleListings = () => {
             </div>
             </div>
         )}
-
 
     const runLower = () => {
         if (!this.state.foundBookings) {
@@ -84,11 +81,8 @@ handleListings = () => {
                     </div>
                 </DateTimeRangePicker>
                 </Lower>  
-            )} else {
-            return (
-                <Redirect to='/search'/>
-            )}
-    };
+            )} else {return (<Redirect to='/search'/>)}};
+            
             return(
             <Switch>     
             <Route path='/home' component={runLower}> </Route>

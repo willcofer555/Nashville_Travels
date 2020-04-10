@@ -19,7 +19,7 @@ h2, h5, h6, li, span{
 #heading {
     width:100%;
     padding-top:5px;
-    background-image: url(../../img/nville.jpg); 
+    background-image: url(../img/nville.jpg); 
     background-size: cover ;
     
 }

@@ -1,15 +1,14 @@
 import React from 'react';
 import { NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import './Nav.css'
+import './homes.css'
 
 
 
-class Nav extends React.Component {
+export function Nav({props}){
 
 
 
-render() {
     return(
         <div>
     <nav className="navbar navbar-expand-sm navbar-dark">
@@ -27,9 +26,22 @@ render() {
               Home
             </NavLink>
     </NavItem> */}
-            <li className="nav-item active"> <a className="nav-link text-dark" href="#"> <i className=""></i> Home</a></li>
-            <li className="nav-item"> <a className="nav-link text-dark" href="#"> <i className=""></i>Locations</a></li>
-            <li className="nav-item"> <a className="nav-link text-dark" href="#"> <i className=""></i>Contact</a></li>
+             <NavItem >
+                     <a className="nav-link text-dark" href="/">
+                     Home
+                    </a>
+            </NavItem>
+            <NavItem>
+                     <NavLink className="nav-link text-dark" to="/locations">
+                     Locations
+                    </NavLink>
+            </NavItem>
+            <NavItem>
+                     <NavLink className="nav-link text-dark" to="/contact">
+                     Contact
+                    </NavLink>
+            </NavItem>
+            
             <li className=""> <a data-toggle="modal" data-target="#loginModal" className="nav-link text-dark"  href="#"> <i className="" ></i>Login</a></li>
 
         </ul>
@@ -40,7 +52,7 @@ render() {
     </div>
     
     )
-}
+
 
 }
 
