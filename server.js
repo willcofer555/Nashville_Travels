@@ -13,9 +13,7 @@ const db = new sqlite3.Database(':memory', (err => {
 
 
 
-/*select * from 'test_table'
-where end_date < CAST('2009-12-15' AS DATE)
-or start_date > CAST('2010-01-02' AS DATE) */
+
 
 app.get('/bookings',(req,res) => {
 start = req.query.startDate;
@@ -30,11 +28,14 @@ db.get('SELECT DISTINCT Property_name FROM Bookings WHERE ($end < Start_Date OR 
 });
 });
 
+
+/* add email field */
 app.post('/bookings/:propertyName',(req,res) => {
 start = req.query.startDate;
 end = req.query.endDate;
+email = req.query.email;
 property = req.params.home;
-db.get('INSERT INTO Bookings(Property_Name,Start_Date,End_Date) VALUES ($property, $start, $end),',{$property:property, $start:start, $end: end}, (err,rows) => {
+db.get('INSERT INTO Bookings(Property_Name,Start_Date,End_Date, Email) VALUES ($property, $email, $start, $end),',{$property:property, $email: email, $start:start, $end: end}, (err,rows) => {
     if (err) {
         console.log("Error while posting new Booking");
         console.log(err.message);
