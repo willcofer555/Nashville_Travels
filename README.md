@@ -1,6 +1,6 @@
 <h1 align='center'> Nashville Travels </h1>
 
-<p align='left'>This project is a full stack property rental app using React, Node.js and ExpressJS. Made for the short term proeprty rental company Nashville Travels LLC</p>
+<p align='left'>This project is a full stack property rental app using React, Node.js and ExpressJS. Made for the short term property rental company Nashville Travels LLC</p>
 
 For Demo, clone repo, install dev dependencies, npm start http://localhost:8001/
 
