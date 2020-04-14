@@ -20,8 +20,6 @@ export function BookingList({propsListing,props}) {
                                         <span className="fa fa-star"> </span> <span className="ml-1">{propsListing.rating}</span>
                                         <p>{propsListing.description}</p>                                                             
                                         </div>
-                                        
-                            
                          </>
     )
 }

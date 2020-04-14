@@ -35,6 +35,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "bootstrap-daterangepicker": "^3.0.5",
+    "cors": "^2.8.5",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "lite-server": "^2.5.4",
@@ -46,8 +47,11 @@
     "react-bootstrap-datetimerangepicker": "^2.0.4",
     "react-dates": "^21.8.0",
     "react-image-lightbox": "^5.1.1",
+    "react-redux": "^7.2.0",
+    "react-redux-form": "^1.16.14",
     "react-router-dom": "^4.2.2",
     "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
     "sqlite": "^3.0.3",
     "sqlite3": "^4.1.1"
   }

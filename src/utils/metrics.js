@@ -1,6 +1,6 @@
 
 const Metrics = {};
-const baseUrl = 'http://localhost:4002';
+const baseUrl = 'http://localhost:8002';
 
 
 Metrics.getBookings = (start_date, end_date) => {
@@ -43,6 +43,7 @@ Metrics.getBookings = (start_date, end_date) => {
     })
   };
   
+  
   Metrics.allBookings = () => {
       let url = `${baseUrl}/bookings`;
       return fetch(url).then(response => {
@@ -55,3 +56,5 @@ Metrics.getBookings = (start_date, end_date) => {
           })
       })
   }
+
+  export default Metrics;

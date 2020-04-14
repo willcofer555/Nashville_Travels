@@ -39,6 +39,7 @@ handleApply(event, picker) {
      console.log(this.state.endDate.format('YYYYMMDD'));
  }
 
+ 
 handleListings = () => {
      this.setState({foundBookings: true});
     if (this.state.startDate && this.state.endDate) {

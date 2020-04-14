@@ -1,0 +1,48 @@
+body {
+    margin:0px;
+}
+
+h2, h5, h6, li, span{
+    font-family: 'Lato', sans-serif;
+}
+
+.innerJumbo {
+    height:50vh;
+    
+}
+.row-content {
+    min-height:225px;
+    padding: 50px 0;
+    border-bottom: 1px ridge;
+}
+
+#heading {
+    width:100%;
+    padding-top:5px;
+    /*background-image: url(img/random_skyline.jpeg); */
+    
+}
+
+#contact_header {
+    width:100%;
+    padding-top:5px;
+    background:white; 
+}
+
+
+#innerJumboContainer {
+    padding:5rem;
+}
+#header_pic {
+    height: 52.5vh;
+}
+
+
+.av1 {
+    height:200px;
+    width:200px;
+}
+
+.checked {
+    color: orange;
+  }
