@@ -3,7 +3,7 @@ import Nav from './Nav';
 import Lower from './Lower';
 import { Button } from 'react-bootstrap';
 import Contactus from './Contactus';
-import PropertyList from './PropertyList';
+import Properties from '../shared/properties.js';
 import { Switch, Route, Redirect, withRouter, useHistory } from 'react-router-dom';
 import DateTimeRangePicker from 'react-bootstrap-datetimerangepicker';
 import moment from 'moment';
@@ -53,6 +53,7 @@ handleListings = () => {
     })
 }}
     render() {
+    
     const handleBookings = () => {
         return(
             <div className="container">

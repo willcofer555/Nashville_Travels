@@ -194,7 +194,7 @@ class Header extends Component {
                                 <Col md={10}>
                                     <Control.textarea model=".feedback" id="feedback" name="feedback"
                                         className=".feedback"
-                                        rows="12"
+                                        rows="10"
                                         />
                                 </Col>
                             </Row >

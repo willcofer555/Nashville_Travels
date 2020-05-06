@@ -30,7 +30,7 @@ Metrics.getBookings = (start_date, end_date) => {
     })
   }
 
-  Metrics.bookUser = (homeName, start_date, end_date, email ) => {
+  Metrics.bookUser = (homeName, email, start_date, end_date) => {
     let url = `${baseUrl}/bookings/${homeName}?user=${email}&start_date=${start_date}&end_date=${end_date}`;
     return fetch(url).then(response => {
       if (!response.ok) {

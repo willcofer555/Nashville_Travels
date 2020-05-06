@@ -7,6 +7,7 @@ import { Modal, Col, Form } from 'react-bootstrap';
 import './homes.css';
 import moment from 'moment';
 
+
 class Booking extends React.Component {
     constructor(props) {
         super(props)
@@ -50,8 +51,6 @@ class Booking extends React.Component {
         e.preventDefault();
     }
 
-    
-
     componentDidMount() {
         let start = this.props.startDate.format('YYYY-MM-DD');
         let end = this.props.endDate.format('YYYY-MM-DD');
@@ -68,12 +67,15 @@ class Booking extends React.Component {
     render() {
         let start = this.props.startDate.format('MM/DD/YYYY');
         let end = this.props.endDate.format('MM/DD/YYYY');
+        let dbStart = this.props.startDate;
+        let dbEnd = this.props.endDate;
         let addModalClose = () => this.setState({setModalShow: false});
+        //let {address, perNight, cleaningFee, description, nights} = props.books;
         let propsList = homesList;
         
                  return(
-                     
                     this.props.books.map(book=> {
+                    
                     let propsListing = propsList[book];
                     return(
                 
@@ -81,8 +83,11 @@ class Booking extends React.Component {
                 <BookingList onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} propsListing={propsListing} />
                 <button onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} className="btn btn-secondary mr-5">Reserve</button>
                 <StrapModal
+                homeNum={book}
                 start={start}
                 end={end}
+                dbStart={dbStart}
+                dbEnd={dbEnd}
                 handleSubmit={this.handleSubmit} 
                 handleChange={this.handleChange}
                 show={this.state.setModalShow} 

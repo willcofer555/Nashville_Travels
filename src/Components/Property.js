@@ -28,7 +28,7 @@ class Property extends React.Component {
                             </div>
                              <div className="row row-content align-items-end">
                              <div className="col media">
-                                 <img className="d-flex mb-5 img-fluid" src={require('../img/modernHouse.png')} alt="property#1" />
+                                 <img className="d-flex mb-5 img-fluid" src={require('../img/old_house.png')} alt="property#1" />
                              </div>
                              <div className="col-12 col-md-8 ">
                                  <h5 className="card-title ">311 Hemphouse Drive <span className="card-body">4 bedroom 2 bathroom</span></h5>

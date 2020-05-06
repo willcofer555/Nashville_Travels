@@ -2,6 +2,8 @@ import React from 'react' ;
 import { Modal, Container, InputGroup, FormControl, Form } from 'react-bootstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Row, Button, Label, Col } from 'reactstrap';
+import Metrics from '../utils/metrics';
+import moment from 'moment';
 
 
 const required = val => val && val.length;
@@ -23,6 +25,8 @@ export class StrapModal extends React.Component {
             address: '',
             city: '',
             zipCode: '',
+            startDate: '',
+            endDate: '',
             touched: {
                 firstName: false,
                 lastName: false,
@@ -32,17 +36,24 @@ export class StrapModal extends React.Component {
                 city: false,
                 zipCode: false
 
-            }
+            },
+            homeNum: this.props.homeNum
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleSubmit(values) {
-      console.log('current state is: ' + JSON.stringify(values));
-      alert('Current state is: ' + JSON.stringify(values));
-      /* push data to SQL */
-
+      console.log('current state is: ' + JSON.stringify(values.email));
+      console.log(this.state.homeNum, this.props.start, this.props.end, values.email);
+      let start = this.props.dbStart;
+      let start2 = start.format('YYYYMMDD');
+      let end = this.props.dbEnd;
+      let end2 = end.format('YYYYMMDD');
+      console.log(start2);
+      console.log(end2);
+      this.setState({email: values.email});
+      Metrics.bookUser(this.state.homeNum, values.email, start2, end2);
   }
 
 
@@ -63,11 +74,12 @@ export class StrapModal extends React.Component {
       let subTotal = numNights * perNight;
       let tax = (numNights * perNight)* 0.10;
       
+
       return (
         <Modal {...this.props} aria-labelledby="contained-modal-title-vcenter">
           <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            {this.props.homeAddress} <br/> 
+            {this.props.homeAddress}  <br/> 
             </Modal.Title>
             <div className="mt-2 ml-3 text-secondary">
             {this.props.start} - {this.props.end}
