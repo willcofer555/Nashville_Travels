@@ -39,43 +39,43 @@ db.all('SELECT DISTINCT Property_name FROM Bookings WHERE ($end < Start_Date OR 
 
 
 /* added email field */
-app.post('/bookings/:propertyName',(req,res) => {
-start = req.query.startDate;
-end = req.query.endDate;
-email = req.query.email;
+app.post('/booking/:home',(req,res) => {
 property = req.params.home;
-db.get('INSERT INTO Bookings(Property_Name,Start_Date,End_Date, Email) VALUES ($property, $email, $start, $end),',{$property:property, $email: email, $start:start, $end: end}, (err,rows) => {
+start = req.query.start_date;
+end = req.query.end_date;
+email = req.query.email;
+db.all('INSERT INTO Bookings(Property_Name, Start_Date, End_Date, Email) VALUES ($property, $start, $end, $email),',{$property:property, $email: email, $start:start, $end: end}, (err,rows) => {
     if (err) {
         console.log("Error while posting new Booking");
         console.log(err.message);
+    } else if (rows) {
+        res.status(200).send();
+        console.log("success");
     }
-    res.status(200).send();
+    
 });
 });
-
 
 
 
 app.get('/test',(req,res,next) => {
-    res.send("Test successful");
-    db.get("Select * FROM Bookings",(err,rows) => {
+    db.all("Select * FROM Bookings",(err,rows) => {
         if (err) {
             console.log(err);
         } else if (rows) {
-            console.log(rows);
             res.send(rows);
         }
     })
 });
 
+
+
 app.get('/users',(req,res,next) => {
-    res.send("Get users successful");
-    db.get("Select * FROM Users",(err,rows) => {
+    db.all("Select * FROM Users",(err,rows) => {
         if (err) {
             console.log(err);
         } else if (rows) {
             res.send(rows);
-            console.log(rows);
         }
     })
 });
