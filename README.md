@@ -7,6 +7,8 @@ For Demo, clone repo, install dev dependencies, npm start http://localhost:8001/
 
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/FEpic.jpeg)
 
+![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/bookview.png)
+
 ** Tools used: Node.js, React, Express.js, SQLite, NodeSQLite**
 
 
