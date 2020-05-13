@@ -12,14 +12,14 @@ const db = new sqlite3.Database(':memory', (err => {
     }
 }));
 
-/*app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  }); */
+
+  app.get("/", (req, res, next) => {
+    res.json({"message":"Ok"})
+});
 
 
-app.get('/bookings',(req,res) => {
+//Get available bookings by date
+app.get('/bookings',(req,res,next) => {
 start = req.query.start_date;
 end = req.query.end_date;
 db.all('SELECT DISTINCT Property_name FROM Bookings WHERE ($end < Start_Date OR $start >= End_Date)',{$start: start, $end: end}, (err,rows) => {
@@ -35,16 +35,17 @@ db.all('SELECT DISTINCT Property_name FROM Bookings WHERE ($end < Start_Date OR 
         console.log(bookings);
         console.log('success')
 });
+next();
 });
 
 
-/* added email field */
-app.post('/booking/:home',(req,res) => {
-property = req.params.home;
+//Book home by property name & start date & end date & email
+app.get('/books',(req,res, next) => {
+property = req.query.home;
 start = req.query.start_date;
 end = req.query.end_date;
 email = req.query.email;
-db.all('INSERT INTO Bookings(Property_Name, Start_Date, End_Date, Email) VALUES ($property, $start, $end, $email),',{$property:property, $email: email, $start:start, $end: end}, (err,rows) => {
+db.run('INSERT INTO Bookings(Property_Name, Start_Date, End_Date, Email) VALUES ($property, $start, $end, $email),',{$property:property, $start:start, $end: end, $email: email}, (err,rows) => {
     if (err) {
         console.log("Error while posting new Booking");
         console.log(err.message);
@@ -78,13 +79,6 @@ app.get('/users',(req,res,next) => {
             res.send(rows);
         }
     })
-});
-
-
-app.get('/bookings/:property',(req,res,next) => {
-
-
-
 });
 
 
