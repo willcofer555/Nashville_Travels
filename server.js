@@ -40,7 +40,7 @@ next();
 
 
 //Book home by property name & start date & end date & email
-app.get('/books',(req,res, next) => {
+app.post('/books',(req,res, next) => {
 property = req.query.home;
 start = req.query.start_date;
 end = req.query.end_date;
