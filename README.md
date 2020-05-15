@@ -31,14 +31,12 @@ This project is licensed under the MIT License.
 
 
 
-
+Home
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/FEpic.jpeg)
-
+Booking view
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/bookview.png)
 
-** Tools used: Node.js, React, Express.js, SQLite, NodeSQLite**
 
-*White
 
 
 
