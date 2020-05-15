@@ -14,7 +14,7 @@ This application is available for use in local environment . Clone repo, install
 
 * [Node.js 12.9.0](https://nodejs.org/docs/latest-v12.x/api/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 * [React 16.13.1](https://reactjs.org/docs/react-api.html) - A JavaScript library for building user interfaces
-* [Express 4.17.1] (https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
+* [Express 4.17.1](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
 * [SQLite3 4.2.0](https://github.com/mapbox/node-sqlite3/wiki) - Asynchronous, non-blocking SQLite3 bindings for Node.js
 
 
