@@ -42,6 +42,25 @@ Metrics.getBookings = (start_date, end_date) => {
       })
     })
   };
+
+  Metrics.newBookUser = booking => {
+    const url = `${baseUrl}/postbookings`;
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({booking: booking})
+    };
+    return fetch(url, fetchOptions).then(response => {
+      if (!response.ok) {
+        return new Promise(resolve => resolve(null));
+      }
+      return response.json().then(jsonResponse => {
+        return jsonResponse.bookings;
+      });
+    });
+  };
   
   
   Metrics.allBookings = () => {

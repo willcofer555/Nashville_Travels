@@ -12,14 +12,14 @@ const db = new sqlite3.Database(':memory', (err => {
     }
 }));
 
+/*app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  }); */
 
-  app.get("/", (req, res, next) => {
-    res.json({"message":"Ok"})
-});
 
-
-//Get available bookings by date
-app.get('/bookings',(req,res,next) => {
+app.get('/bookings',(req,res) => {
 start = req.query.start_date;
 end = req.query.end_date;
 db.all('SELECT DISTINCT Property_name FROM Bookings WHERE ($end < Start_Date OR $start >= End_Date)',{$start: start, $end: end}, (err,rows) => {
@@ -35,17 +35,16 @@ db.all('SELECT DISTINCT Property_name FROM Bookings WHERE ($end < Start_Date OR 
         console.log(bookings);
         console.log('success')
 });
-next();
 });
 
 
-//Book home by property name & start date & end date & email
-app.post('/books',(req,res, next) => {
-property = req.query.home;
+/* added email field */
+app.post('/booking/:home',(req,res) => {
+property = req.params.home;
 start = req.query.start_date;
 end = req.query.end_date;
 email = req.query.email;
-db.run('INSERT INTO Bookings(Property_Name, Start_Date, End_Date, Email) VALUES ($property, $start, $end, $email),',{$property:property, $start:start, $end: end, $email: email}, (err,rows) => {
+db.all('INSERT INTO Bookings(Property_Name, Start_Date, End_Date, Email) VALUES ($property, $start, $end, $email),',{$property:property, $email: email, $start:start, $end: end}, (err,rows) => {
     if (err) {
         console.log("Error while posting new Booking");
         console.log(err.message);
@@ -81,6 +80,36 @@ app.get('/users',(req,res,next) => {
     })
 });
 
+
+app.post('/postbookings', (req, res, next) => {
+    const home = req.body.values.home,
+          start = req.body.values.start_date,
+          end = req.body.values.end_date,
+          email = req.body.values.email;
+    if (!home || !start || !end || !email) {
+      return res.sendStatus(400);
+    }
+
+    const sql = 'INSERT INTO Bookings (property_name, start_date, end_date, email)' +
+        'VALUES ($home, $start, $end, $email)';
+    const values = {
+      $home: home,
+      $start: start,
+      $end: end,
+      $email: email
+    };
+  
+    db.run(sql, values, function(error) {
+      if (error) {
+        next(error);
+      } else {
+        db.get(`SELECT * FROM Bookings WHERE Bookings.id = ${this.lastID}`,
+          (error, booking) => {
+            res.status(201).json({booking: booking});
+          });
+      }
+    });
+  });
 
 
 app.listen(PORT, () => {
