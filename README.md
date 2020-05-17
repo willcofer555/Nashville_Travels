@@ -6,7 +6,7 @@
 
 ## Getting Started
 
-This application is available for use in local environment . Clone repo, install dev dependencies using npm install, npm start  -> http://localhost:8001/
+This application is available for use in your local environment . Clone repo, install dev dependencies using npm install, npm start  -> http://localhost:8001/
 
 
 
