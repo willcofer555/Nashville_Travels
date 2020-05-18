@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Nav from './Nav';
 import Lower from './Lower';
 import { Button } from 'react-bootstrap';
 import Contactus from './Contactus';
-import Properties from '../shared/properties.js';
-import { Switch, Route, Redirect, withRouter, useHistory } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import DateTimeRangePicker from 'react-bootstrap-datetimerangepicker';
 import moment from 'moment';
 import Metrics from '../utils/metrics';
@@ -45,7 +44,6 @@ handleListings = () => {
     if (this.state.startDate && this.state.endDate) {
         let formatStart = this.state.startDate.format('YYYYMMDD');
         let formatEnd = this.state.endDate.format('YYYYMMDD');
-        let bookingsState = this.state.bookings;
         Metrics.getBookings(formatStart, formatEnd).then(bookings => {
             this.setState({bookings: bookings})
             console.log(bookings)

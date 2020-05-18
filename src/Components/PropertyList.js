@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Property from './Property';
 import StrapModal from './StrapModal'
 import { homesList } from '../shared/properties';

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Nav from './Nav';
 import PropertyList from './PropertyList';
 import { homesList } from '../shared/properties';

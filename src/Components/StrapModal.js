@@ -45,24 +45,18 @@ export class StrapModal extends React.Component {
     }
 
     handleSubmit(values) {
-      console.log('current state is: ' + JSON.stringify(values));
-      console.log(this.state.homeNum, this.props.start, this.props.end, values.email);
       let start = this.props.dbStart;
       let start2 = start.format('YYYYMMDD');
       let end = this.props.dbEnd;
       let end2 = end.format('YYYYMMDD');
-      console.log(start2);
-      console.log(end2);
       let bookvalues = {
         home: this.state.homeNum,
         email: values.email,
         start_date: start2,
         end_date: end2
       }; 
-      console.log(JSON.stringify(bookvalues));
-      Metrics.newBookUser(bookvalues);
-      //this.setState({submitted: true}).then(
-      
+      Metrics.newBookUser(bookvalues).then(
+      this.setState({submitted: true}));
   }
   
 
@@ -83,7 +77,7 @@ export class StrapModal extends React.Component {
       let subTotal = numNights * perNight;
       let tax = (numNights * perNight)* 0.10;
       
-
+      
       return (
         <Modal {...this.props} aria-labelledby="contained-modal-title-vcenter">
           <Modal.Header closeButton>
@@ -339,6 +333,7 @@ Total: Total
           </Modal.Body>
         </Modal>
       )
+    
 
     }
        

@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './homes.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button} from 'react-bootstrap';
-import DateTimeRangePicker from 'react-bootstrap-datetimerangepicker';
-import Metrics from '../utils/metrics';
 import Nav from './Nav';
 import PropertyList from './PropertyList';
-import Booking from './Bookings';
-import moment from 'moment';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+
 
 
 export function Lower(props){
