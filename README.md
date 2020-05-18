@@ -32,7 +32,7 @@ This project is licensed under the MIT License.
 
 
 Home
-![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/FEpic.jpeg)
+![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
 Booking view
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/bookview.png)
 
