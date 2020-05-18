@@ -36,6 +36,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-daterangepicker": "^3.0.5",
     "cors": "^2.8.5",
+    "errorhandler": "^1.5.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "lite-server": "^2.5.4",

@@ -1,4 +1,4 @@
-
+import 'whatwg-fetch';
 const Metrics = {};
 const baseUrl = 'http://localhost:8002';
 
@@ -52,14 +52,16 @@ Metrics.getBookings = (start_date, end_date) => {
       },
       body: JSON.stringify({booking: booking})
     };
+    console.log(fetchOptions);
+
     return fetch(url, fetchOptions).then(response => {
       if (!response.ok) {
         return new Promise(resolve => resolve(null));
       }
       return response.json().then(jsonResponse => {
-        return jsonResponse.bookings;
+        return jsonResponse.booking;
       });
-    });
+    }); 
   };
   
   
@@ -75,5 +77,6 @@ Metrics.getBookings = (start_date, end_date) => {
           })
       })
   }
+
 
   export default Metrics;

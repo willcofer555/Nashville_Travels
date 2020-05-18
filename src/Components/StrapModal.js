@@ -37,14 +37,15 @@ export class StrapModal extends React.Component {
                 zipCode: false
 
             },
-            homeNum: this.props.homeNum
+            homeNum: this.props.homeNum,
+            submitted: false
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleSubmit(values) {
-      console.log('current state is: ' + JSON.stringify(values.email));
+      console.log('current state is: ' + JSON.stringify(values));
       console.log(this.state.homeNum, this.props.start, this.props.end, values.email);
       let start = this.props.dbStart;
       let start2 = start.format('YYYYMMDD');
@@ -52,9 +53,18 @@ export class StrapModal extends React.Component {
       let end2 = end.format('YYYYMMDD');
       console.log(start2);
       console.log(end2);
-      this.setState({email: values.email});
-      Metrics.bookUser(this.state.homeNum, values.email, start2, end2);
+      let bookvalues = {
+        home: this.state.homeNum,
+        email: values.email,
+        start_date: start2,
+        end_date: end2
+      }; 
+      console.log(JSON.stringify(bookvalues));
+      Metrics.newBookUser(bookvalues);
+      //this.setState({submitted: true}).then(
+      
   }
+  
 
 
   handleInputChange(event) {
@@ -66,7 +76,6 @@ export class StrapModal extends React.Component {
       [name]: value
     });
 }
-
 
 
     render(){

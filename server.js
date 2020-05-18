@@ -12,6 +12,8 @@ const db = new sqlite3.Database(':memory', (err => {
     }
 }));
 
+app.use(bodyParser.json());
+
 /*app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -52,7 +54,6 @@ db.all('INSERT INTO Bookings(Property_Name, Start_Date, End_Date, Email) VALUES 
         res.status(200).send();
         console.log("success");
     }
-    
 });
 });
 
@@ -82,10 +83,10 @@ app.get('/users',(req,res,next) => {
 
 
 app.post('/postbookings', (req, res, next) => {
-    const home = req.body.values.home,
-          start = req.body.values.start_date,
-          end = req.body.values.end_date,
-          email = req.body.values.email;
+        const home = req.body.booking.home,
+          start = req.body.booking.start_date,
+          end = req.body.booking.end_date,
+          email = req.body.booking.email;
     if (!home || !start || !end || !email) {
       return res.sendStatus(400);
     }
@@ -103,10 +104,7 @@ app.post('/postbookings', (req, res, next) => {
       if (error) {
         next(error);
       } else {
-        db.get(`SELECT * FROM Bookings WHERE Bookings.id = ${this.lastID}`,
-          (error, booking) => {
-            res.status(201).json({booking: booking});
-          });
+          console.log("its working bro");
       }
     });
   });
