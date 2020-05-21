@@ -14,8 +14,8 @@ This application is available for use in your local environment . Clone repo, in
 
 * [Node.js 12.9.0](https://nodejs.org/docs/latest-v12.x/api/) 
 * [React 16.13.1](https://reactjs.org/docs/react-api.html) 
-* [Express 4.17.1](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
-* [node-sqlite3 4.2.0](https://github.com/mapbox/node-sqlite3/wiki) - Asynchronous, non-blocking SQLite3 bindings for Node.js
+* [Express 4.17.1](https://expressjs.com/) 
+* [node-sqlite3 4.2.0](https://github.com/mapbox/node-sqlite3/wiki)
 
 
 
