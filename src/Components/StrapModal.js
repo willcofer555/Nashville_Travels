@@ -95,7 +95,6 @@ export class StrapModal extends React.Component {
                 <Col xs={12} md={12}>
                 </Col>
                 <Col xs={12} md={12}>
-
                 </Col>
               </Row>
               <Row className="show-grid">
@@ -333,12 +332,7 @@ Total: Total
           </Modal.Body>
         </Modal>
       )
-    
-
     }
-       
-    
-    
   }
   
   export default StrapModal;

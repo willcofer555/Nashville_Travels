@@ -104,7 +104,7 @@ app.post('/postbookings', (req, res, next) => {
       if (error) {
         next(error);
       } else {
-          console.log("its working bro");
+          console.log("new booking successfully added to Bookings");
       }
     });
   });

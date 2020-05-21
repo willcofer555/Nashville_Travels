@@ -41,8 +41,13 @@ export function Nav({props}){
                      Contact
                     </NavLink>
             </NavItem>
+            <NavItem>
+                     <NavLink className="nav-link text-dark" to="/login">
+                     Login
+                    </NavLink>
+            </NavItem>
             
-            <li className=""> <a data-toggle="modal" data-target="#loginModal" className="nav-link text-dark"  href="#"> <i className="" ></i>Login</a></li>
+            
 
         </ul>
         

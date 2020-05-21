@@ -55,3 +55,22 @@ h2, h5, h6, li, span{
 .checked {
     color: orange;
   }
+
+  .formWidth {
+      width:30rem;
+      margin: 5% 10% 0 30%;
+  }
+
+  .loginDiv{
+      margin: auto;
+      text-align: center;
+  }
+
+  .loginDiv h3 {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: white;
+	  font-size: 45px;
+	  -webkit-text-stroke: 1px #0275d8;
+  }

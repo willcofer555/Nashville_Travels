@@ -9,6 +9,7 @@ import moment from 'moment';
 import Metrics from '../utils/metrics';
 import Booking from './Bookings';
 import Locations from './Locations';
+import { Login } from './Login';
 import './homes.css';
 class Main extends React.Component {
     constructor(props) {
@@ -89,6 +90,7 @@ handleListings = () => {
             <Route exact path='/locations' render={()=> <Locations />}> </Route>
             <Route exact path='/search' component={handleBookings}></Route>
             <Route exact path='/contact' render={()=> <Contactus />}></Route>
+            <Route exact path='/login' render={()=> <Login />}></Route>
             <Redirect to='/home' />
             </Switch>  
         )
