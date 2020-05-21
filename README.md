@@ -1,8 +1,8 @@
 <h1 align='center'> Nashville Travels </h1>
 
-Home
+
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
-Booking view
+
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/bookview.png)
  
 
