@@ -1,10 +1,6 @@
 <h1 align='center'> Nashville Travels </h1>
 
 
-![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
-
-![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/bookview.png)
- 
 
 <p align='left'> Property rental app using React, Node.js and ExpressJS. Made for the short term property rental company Nashville Travels LLC</p>
 
@@ -34,7 +30,10 @@ This application is available for use in your local environment . Clone repo, in
 
 This project is licensed under the MIT License.
 
+![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
 
+![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/bookview.png)
+ 
 
 
 
