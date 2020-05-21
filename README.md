@@ -7,8 +7,7 @@
 
 ## Getting Started
 
-This application is available for use in your local environment . Clone repo, install dev dependencies using npm install, npm start  -> http://localhost:8001/
-
+For use on your local environment -- Clone repo, install dev dependencies (npm install), npm start  -> http://localhost:8001/
 
 
 ## Built With
@@ -26,9 +25,6 @@ This application is available for use in your local environment . Clone repo, in
 * William Cofer 
 * Hannah K. Cook https://hannahkcook.tech/ 
 
-## License
-
-This project is licensed under the MIT License.
 
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
 
