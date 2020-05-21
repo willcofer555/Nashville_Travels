@@ -9,7 +9,7 @@ import moment from 'moment';
 import Metrics from '../utils/metrics';
 import Booking from './Bookings';
 import Locations from './Locations';
-import { Login } from './Login';
+import Login from './Login';
 import './homes.css';
 class Main extends React.Component {
     constructor(props) {
