@@ -2,7 +2,7 @@
 
 
 
-<p align='left'> Property rental app using React, Node.js and ExpressJS. Made for the short term property rental company Nashville Travels LLC</p>
+<p align='left'> Property booking management systemj made for the short term property rental company Nashville Travels LLC. Users can filter homes by date avialable, number of guests and location. Once registered and logged in, user can submit their booking information which is stored in SQLite database or reserve booking as guest using email and password.</p>
 
 
 ## Getting Started
