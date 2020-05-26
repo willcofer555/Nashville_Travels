@@ -10,14 +10,6 @@
 For use on your local environment -- Clone repo, install dev dependencies (npm install), npm start  -> http://localhost:8001/
 
 
-## Built With
-
-* [Node.js 12.9.0](https://nodejs.org/docs/latest-v12.x/api/) 
-* [React 16.13.1](https://reactjs.org/docs/react-api.html) 
-* [Express 4.17.1](https://expressjs.com/) 
-* [node-sqlite3 4.2.0](https://github.com/mapbox/node-sqlite3/wiki)
-
-
 
 
 ## Authors
@@ -28,9 +20,15 @@ For use on your local environment -- Clone repo, install dev dependencies (npm i
 
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
 
-![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/bookview.png)
+![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/gh_5_26.png)
+
+![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/gh_5_26_1.png)
  
 
 
+## Built With
 
-
+* [Node.js 12.9.0](https://nodejs.org/docs/latest-v12.x/api/) 
+* [React 16.13.1](https://reactjs.org/docs/react-api.html) 
+* [Express 4.17.1](https://expressjs.com/) 
+* [node-sqlite3 4.2.0](https://github.com/mapbox/node-sqlite3/wiki)
