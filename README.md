@@ -12,12 +12,6 @@ For use on your local environment -- Clone repo, install dev dependencies (npm i
 
 
 
-## Authors
-
-* William Cofer 
-* Hannah K. Cook https://hannahkcook.tech/ 
-
-
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
 
 
@@ -33,3 +27,9 @@ For use on your local environment -- Clone repo, install dev dependencies (npm i
 * [React 16.13.1](https://reactjs.org/docs/react-api.html) 
 * [Express 4.17.1](https://expressjs.com/) 
 * [node-sqlite3 4.2.0](https://github.com/mapbox/node-sqlite3/wiki)
+
+## Authors
+
+* William Cofer 
+* Hannah K. Cook https://hannahkcook.tech/ 
+
