@@ -52,7 +52,6 @@ export function Lower(props){
                         </div>
             </div>
             </div>
-            <PropertyList />
             </>    
         )
 

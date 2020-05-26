@@ -10,7 +10,7 @@ function Locations(){
         return(
             <div id="deadheading" className="jumbotron jumbotron-fluid bg-transparent">
             <Nav />
-            <PropertyList />
+    
             </div>
         )
 }

@@ -11,7 +11,18 @@ const maxLength = len => val => !val || (val.length <= len);
 const minLength = len => val => val && (val.length >= len);
 const isNumber = val => !isNaN(+val);
 const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+const Sum = (...args) => args.reduce((a, b) => a + b, 0);
 
+
+const Total = ({a, b}) => (
+  <Sum>
+
+  </Sum>
+)
+
+const multiply = (nums) => {
+  return nums.reduce((total, val) => total * val, 1);
+}
 
 export class StrapModal extends React.Component {
     constructor(props) {
@@ -56,7 +67,9 @@ export class StrapModal extends React.Component {
         end_date: end2
       }; 
       Metrics.newBookUser(bookvalues).then(
-      this.setState({submitted: true}));
+      this.setState({submitted: true})).then(
+      this.props.onHide());
+
   }
   
 
@@ -74,10 +87,11 @@ export class StrapModal extends React.Component {
 
     render(){
       let {numNights, perNight, cleaningFee, start, end} = this.props;
+      let total = numNights * perNight;
       let subTotal = numNights * perNight;
       let tax = (numNights * perNight)* 0.10;
-      
-      
+      let multNums = [numNights,perNight]
+
       return (
         <Modal {...this.props} aria-labelledby="contained-modal-title-vcenter">
           <Modal.Header closeButton>
@@ -318,7 +332,9 @@ ${this.props.perNight} x {this.props.numNights} Nights
 +  ${tax} (10%)
 </Col>
 <Col xs={12} md={12} className="mb-3">
-Total: Total
+
+Total: ${total}
+
 </Col>
 </Row>
 <hr></hr>

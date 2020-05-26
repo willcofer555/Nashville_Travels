@@ -22,7 +22,7 @@ render() {
     let propsList = homesList;
     return(
             <div className="container">
-            <Property onClick={()=> this.setState({setModalShow: true})}/>   
+            <Property homes={homesList} onClick={()=> this.setState({setModalShow: true})}/>   
             <StrapModal
                 show={this.state.setModalShow} 
                 onHide={this.hideModal}
