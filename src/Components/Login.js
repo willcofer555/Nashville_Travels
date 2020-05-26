@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Nav from './Nav';
 import './homes.css';
 
@@ -75,5 +77,17 @@ class Login extends React.Component {
     
 }
 
-export default Login;
+function mapState(state) {
+    const { loggingIn } = state.authentication;
+    return { loggingIn };
+}
+
+const actionCreators = {
+    login: userActions.login,
+    logout: userActions.logout
+};
+const connectedLoginPage = connect(mapState, actionCreators)(LoginPage);
+export { connectedLoginPage as Login }
+
+
 
