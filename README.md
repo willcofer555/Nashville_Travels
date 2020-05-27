@@ -15,10 +15,9 @@ For use on your local environment -- Clone repo, install dev dependencies (npm i
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
 
 
-![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/gh_5_26_1.png)
-
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/gh_5_26.png)
  
+ ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/gh_5_26_1.png)
 
 
 ## Built With
