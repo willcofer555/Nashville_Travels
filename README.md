@@ -5,11 +5,6 @@
 <p align='left'> Property booking management system made for the short term property rental company Nashville Travels LLC. Users can filter homes by date available, number of guests and location. Once registered and logged in, user can submit their booking information which is stored in SQLite database or reserve booking as guest using email and password.</p>
 
 
-## Getting Started
-
-For use on your local environment -- Clone repo, install dev dependencies (npm install), npm start  -> http://localhost:8001/
-
-
 
 
 ![alt text](https://raw.githubusercontent.com/willcofer555/nashville_travels/master/src/img/home_datepicker.png)
