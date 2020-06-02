@@ -8,9 +8,9 @@ import DateTimeRangePicker from 'react-bootstrap-datetimerangepicker';
 import moment from 'moment';
 import Metrics from '../utils/metrics';
 import Booking from './Bookings';
-import Locations from './Locations';
 import Login from './Login';
 import './homes.css';
+import { GuestPicker } from './GuestPicker';
 class Main extends React.Component {
     constructor(props) {
         super(props)
@@ -63,12 +63,21 @@ handleListings = () => {
             </div>
         )}
 
+        const handleLocations = () => {
+            return(
+                <div id="deadheading" className="jumbotron jumbotron-fluid bg-transparent">
+            <Nav />
+            </div>
+            )
+        }
+
     const runLower = () => {
         if (!this.state.foundBookings) {
             let start = this.state.startDate.format('MM/DD/YYYY');
         let end = this.state.endDate.format('MM/DD/YYYY');
         let label = start + ' - ' + end;
         if (start === end) {label = start;}
+        let guestPicker = <GuestPicker />
             return(
                 <Lower handleListings={this.handleListings}>
                 <DateTimeRangePicker startDate={this.state.startDate} endDate={this.state.endDate} onApply={this.handleApply} value={label}
@@ -81,13 +90,14 @@ handleListings = () => {
                     </span>
                     </div>
                 </DateTimeRangePicker>
+                
                 </Lower>  
             )} else {return (<Redirect to='/search'/>)}};
             
             return(
             <Switch>     
             <Route path='/home' component={runLower}> </Route>
-            <Route exact path='/locations' render={()=> <Locations />}> </Route>
+            <Route exact path='/locations' render={handleLocations}> </Route>
             <Route exact path='/search' component={handleBookings}></Route>
             <Route exact path='/contact' render={()=> <Contactus />}></Route>
             <Route exact path='/login' render={()=> <Login />}></Route>

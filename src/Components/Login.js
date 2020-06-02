@@ -9,8 +9,6 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
 
-        
-
         this.state = {
             username: '',
             password: '',
@@ -77,7 +75,7 @@ class Login extends React.Component {
     
 }
 
-function mapState(state) {
+/*function mapState(state) {
     const { loggingIn } = state.authentication;
     return { loggingIn };
 }
@@ -87,7 +85,10 @@ const actionCreators = {
     logout: userActions.logout
 };
 const connectedLoginPage = connect(mapState, actionCreators)(LoginPage);
-export { connectedLoginPage as Login }
+export { connectedLoginPage as Login }*/
+
+export default Login;
+
 
 
 
