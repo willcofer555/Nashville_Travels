@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { userActions } from '../Actions/user.actions';
 import Nav from './Nav';
 import './homes.css';
 
@@ -9,8 +10,11 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
 
+        //reset login status
+        //this.props.dispatch(userActions.logout());
+
         this.state = {
-            username: '',
+            email: '',
             password: '',
             submitted: false
         }
@@ -28,9 +32,10 @@ class Login extends React.Component {
         e.preventDefault();
 
         this.setState({ submitted: true });
-        const { username, password } = this.state;
-        if (username && password) {
-            this.props.login(username, password);
+        const { email, password } = this.state;
+        const { dispatch } = this.props;
+        if (email && password) {
+            dispatch(userActions.login(email, password));
         }
     }
     
@@ -38,22 +43,33 @@ class Login extends React.Component {
 
     render() {
         const { loggingIn } = this.props;
-        const { username, password, submitted } = this.state;
+        const { email, password, submitted } = this.state;
         return(
             <div className="container-fluid">
                 <Nav />
-                <form className="formWidth">
+                <form onSubmit={this.handleSubmit} className="formWidth">
                     <div className="loginDiv">
-                    <h3>Welcome Home. </h3>
+                    <h3>Nash like a native</h3>
                     </div>
                     <div className="form-group">
                         <label>Email address</label>
-                        <input type="email" className="form-control" placeholder="Enter email" />
+                        <input value={email} onChange={this.handleChange} name="email" type="text" className="form-control" placeholder="Enter email" />
+                        {submitted && !email &&
+                            <div className="help-block">Username is required</div>
+                        }
                     </div>
     
                     <div className="form-group">
-                        <label>Password</label>
-                        <input type="password" className="form-control" placeholder="Enter password" />
+                        <label htmlFor="password">Password</label>
+                        <input name="password"  
+                        type="password" 
+                        className="form-control" 
+                        placeholder="Enter password" 
+                        value={password}
+                        onChange={this.handleChange} />
+                        {submitted && !password &&
+                            <div className="help-block">Username is required</div>
+                        }
                     </div>
     
                     <div className="form-group">
@@ -63,10 +79,14 @@ class Login extends React.Component {
                         </div>
                     </div>
     
-                    <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                    <button type="submit" className="btn btn-primary btn-block">Login</button>
+                    {loggingIn && 
+                    <h3>Logging In</h3>
+                    }
                     <p className="forgot-password text-right">
                         Forgot <a href="#">password?</a>
                     </p>
+                    
                 </form>
             </div>
         )
@@ -75,19 +95,23 @@ class Login extends React.Component {
     
 }
 
-/*function mapState(state) {
+
+function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
-    return { loggingIn };
+    return {
+        loggingIn
+    };
 }
 
 const actionCreators = {
     login: userActions.login,
     logout: userActions.logout
 };
-const connectedLoginPage = connect(mapState, actionCreators)(LoginPage);
-export { connectedLoginPage as Login }*/
 
-export default Login;
+const connectedLoginPage = connect(mapStateToProps)(Login);
+export { connectedLoginPage as Login };
+
+
 
 
 

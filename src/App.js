@@ -1,13 +1,19 @@
 import React from 'react';
 import './App.css';
 import Main from './Components/Main';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './reducers';
 import { BrowserRouter } from 'react-router-dom';
+
+const store = ConfigureStore();
 
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
     <Main/>
     </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -1,5 +1,9 @@
 
 import { authHeader } from '../helpers';
+import { BehaviorSubject } from 'rxjs';
+
+const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
+
 
 export const userService = {
     login,
@@ -7,7 +11,10 @@ export const userService = {
     getAll
 };
 
-const apiUrl = 'localhost.101';
+const apiUrl = 'https://localhost:8002';
+
+
+
 
 function login(username, password) {
     const requestOptions = {
@@ -16,7 +23,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`${apiUrl}/users/authenticate`, requestOptions)
+    return fetch(`${apiUrl}/users/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -29,6 +36,7 @@ function login(username, password) {
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
+    
 }
 
 function getAll() {

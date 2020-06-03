@@ -8,7 +8,7 @@ import DateTimeRangePicker from 'react-bootstrap-datetimerangepicker';
 import moment from 'moment';
 import Metrics from '../utils/metrics';
 import Booking from './Bookings';
-import Login from './Login';
+import { Login } from './Login';
 import './homes.css';
 import { GuestPicker } from './GuestPicker';
 class Main extends React.Component {
