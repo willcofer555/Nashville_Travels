@@ -1,4 +1,5 @@
-import { createUser, findUserByEmail } from './controllers/controllers';
+
+
 const sqlite3 = require('sqlite3').verbose();
 const express = require('express');
 const cors = require('cors');
@@ -8,19 +9,47 @@ const  jwt  =  require('jsonwebtoken');
 const  bcrypt  =  require('bcryptjs'); 
 
 
+
 const app = express();
 
 app.use(cors());
 
-const PORT = 8002;
-const db = new sqlite3.Database(':memory', (err => {
+
+const PORT = 8003;
+const db = new sqlite3.Database('../db/:memory', (err => {
     if (err) {
         console.error(err.message);
     }
 }));
 
 
-const SECRET_KEY = "secretkey23456";
+app.use(bodyParser.json());
+
+ const  findUserByEmail  = (email, cb) => {
+    return  db.get(`SELECT * FROM Users WHERE email = ?`,[email], (err, row) => {
+        if (err) {
+            console.log(err)
+        } else if (row) {
+            return row
+        }
+    });
+}
+
+
+ const createUser  = (user, cb) => {
+    return  db.run('INSERT INTO Users (Last_Name, First_Name, Email, Password) VALUES ($Last_Name, $First_Name, $Email, $Password,)',user, (err) => {
+        cb(err)
+    });
+}
+
+const testUser = (email,cb) => {
+    return console.log(email);
+    
+}
+
+
+
+const SECRET_KEY = "willcofer123";
 
 //GET bookings by date range
 app.get('/bookings',(req,res) => {
@@ -81,31 +110,93 @@ app.post('/users/register', (req, res) => {
     });
 });
 
+
+
 //LOGIN WITH EMAIL PASSWORD
 app.post('/users/login', (req, res) => {
-    const  email  =  req.body.email;
-    const  password  =  req.body.password;
+    let email  =  req.body.email;
+    let password  =  req.body.password;
+    if (email) {
+
+         db.get(`SELECT * FROM Users WHERE email = ?`,[email], (err, user) => {
+            if (err) {
+                console.log(err)
+            } else if (user) {
+            
+                const  expiresIn  =  24  *  60  *  60;
+                const  accessToken  =  jwt.sign({ id: user.id }, SECRET_KEY, {
+                expiresIn:  expiresIn
+                    
+            });
+
+            res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn, "password": user.password});
+                
+            }
+
+            
+    })
+    
+    }
+
+    /*
     findUserByEmail(email, (err, user)=>{
         if (err) return  res.status(500).send('Server error!');
+
+        //check if user exists
+
         if (!user) return  res.status(404).send('User not found!');
+
+        //compare entered password to db password
+
         const  result  =  bcrypt.compareSync(password, user.password);
+
         if(!result) return  res.status(401).send('Password not valid!');
 
         const  expiresIn  =  24  *  60  *  60;
         const  accessToken  =  jwt.sign({ id:  user.id }, SECRET_KEY, {
             expiresIn:  expiresIn
         });
+
         res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn});
-    });
+
+    }); 
+
+    */
+
+
+
+    
 });
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //TESTS
-
-
 
 //GET all Bookings
 app.get('/test',(req,res,next) => {
