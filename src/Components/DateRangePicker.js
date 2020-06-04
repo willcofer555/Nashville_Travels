@@ -7,6 +7,8 @@ import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'rea
 
 
 class DateRangePicker extends React.Component {
+    
+    
 
     render() {
         return(
@@ -25,3 +27,4 @@ class DateRangePicker extends React.Component {
         )
     }
 }
+

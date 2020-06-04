@@ -18,6 +18,7 @@ class Login extends React.Component {
             password: '',
             submitted: false
         }
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -49,7 +50,7 @@ class Login extends React.Component {
                 <Nav />
                 <form onSubmit={this.handleSubmit} className="formWidth">
                     <div className="loginDiv">
-                    <h3>Nash like a native</h3>
+                    <h3>Nash like a native.</h3>
                     </div>
                     <div className="form-group">
                         <label>Email address</label>
@@ -84,7 +85,7 @@ class Login extends React.Component {
                     <h3>Logging In</h3>
                     }
                     <p className="forgot-password text-right">
-                        Forgot <a href="#">password?</a>
+                        Forgot <a href="/">password?</a>
                     </p>
                     
                 </form>
@@ -103,6 +104,7 @@ function mapStateToProps(state) {
     };
 }
 
+//logout button
 const actionCreators = {
     login: userActions.login,
     logout: userActions.logout
