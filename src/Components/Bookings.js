@@ -8,6 +8,13 @@ import './homes.css';
 import moment from 'moment';
 
 
+const button = ({propsListing}) => {
+    return (
+        <button  onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} className="btn btn-secondary mr-5">Reserve</button>
+                
+    )
+}
+
 class Booking extends React.Component {
     constructor(props) {
         super(props)
@@ -23,7 +30,8 @@ class Booking extends React.Component {
                 email: '',
                 password: '',
                 address: ''
-            }    
+            },
+            address: ''
         }
         this.hideModal = this.hideModal.bind(this);
         this.handleReserve = this.handleReserve.bind(this);
@@ -65,6 +73,12 @@ class Booking extends React.Component {
     }
 
     render() {
+        const button = ({propsListing}) => {
+            return (
+                <button  onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} className="btn btn-secondary mr-5">Reserve</button>
+                        
+            )
+        }
         let start = this.props.startDate.format('MM/DD/YYYY');
         let end = this.props.endDate.format('MM/DD/YYYY');
         let dbStart = this.props.startDate;
@@ -77,11 +91,14 @@ class Booking extends React.Component {
                     this.props.books.map(book=> {
                     
                     let propsListing = propsList[book];
+
                     return(
                 
                 <div className="row row-content align-items-end mb-5">
+                    
                 <BookingList onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} propsListing={propsListing} />
-                <button onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name})} className="btn btn-secondary mr-5">Reserve</button>
+                <button  onClick={()=> this.setState({setModalShow: true, bookedHome: propsListing.name, address: propsListing.address})} className="btn btn-secondary mr-5">Reserve</button>
+                
                 <StrapModal
                 homeNum={book}
                 start={start}
@@ -93,7 +110,7 @@ class Booking extends React.Component {
                 show={this.state.setModalShow} 
                 onHide={this.hideModal}
                 reserve={this.handleReserve} 
-                homeAddress={propsListing.address}
+                homeAddress={this.state.address}
                 perNight={propsListing.perNight} 
                 cleaningFee={propsListing.cleaningFee}
                 description={propsListing.description}

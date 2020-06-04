@@ -11,16 +11,18 @@ export function Lower(props){
                 return(
                     <>
                     <div id="heading" className="jumbotron jumbotron-fluid bg-light">
-                    <Nav />
+                    <Nav  color="text-light"/>
                     <div className="container">
                  <div className="row">
-                    <div id="innerJumboContainer" className="col col-sm-12 col-md-12 mx-auto mb-auto">
+                    <div id="innerJumboContainer" className="col col-sm-12 col-md-12 mb-auto pt-xl-5">
                         <div className="jumbotron bg-transparent innerJumbo ">
-                           <div className="col">
-                               <div className="col"> 
-                            <h2>Welcome <span>to Nashville Travels</span></h2>
-                            <h6>Book with us and experience the difference</h6>
-                        </div>
+                           <div className="col-xs-12 pl-0 ml-0 col-lg-12">
+                               <div className="col-xs-9 col-lg-12"> 
+                            <h1 className="hc display-5">Nightly. Weekly. Month to Month</h1>
+                            </div>
+                            <div className="col-xs-9 col-lg-12">
+                            <h4 className="hc display-5">More than a place to hang your hat.</h4>
+                            </div>
                     </div>
                             <hr />
                             <form onSubmit={props.handleListings} action="submit">

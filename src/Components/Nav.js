@@ -27,22 +27,22 @@ export function Nav({props}){
             </NavLink>
     </NavItem> */}
              <NavItem >
-                     <a className="nav-link text-dark" href="/">
+                     <a className="nav-link text-primary" href="/">
                      Home
                     </a>
             </NavItem>
             <NavItem>
-                     <NavLink className="nav-link text-dark" to="/locations">
+                     <NavLink className="nav-link text-primary" to="/locations">
                      Locations
                     </NavLink>
             </NavItem>
             <NavItem>
-                     <NavLink className="nav-link text-dark" to="/contact">
+                     <NavLink className="nav-link text-primary" to="/contact">
                      Contact
                     </NavLink>
             </NavItem>
             <NavItem>
-                     <NavLink className="nav-link text-dark" to="/login">
+                     <NavLink className="nav-link text-primary" to="/login">
                      Login
                     </NavLink>
             </NavItem>

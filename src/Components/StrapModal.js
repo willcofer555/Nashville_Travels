@@ -3,6 +3,7 @@ import { Modal, Container, InputGroup, FormControl, Form } from 'react-bootstrap
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Row, Button, Label, Col } from 'reactstrap';
 import Metrics from '../utils/metrics';
+import { NavLink, Link } from 'react-router-dom';
 import moment from 'moment';
 
 
@@ -86,6 +87,7 @@ export class StrapModal extends React.Component {
 
 
     render(){
+
       let {numNights, perNight, cleaningFee, start, end} = this.props;
       let total = numNights * perNight;
       let subTotal = numNights * perNight;
@@ -338,10 +340,22 @@ Total: ${total}
 </Col>
 </Row>
 <hr></hr>
+<Row>
 
+<Col sm={2} lg={2}>
 <Button className="btn-primary mr-3" type="submit" oncClick={this.handleSubmit}> Reserve</Button>
-<Button className="btn-secondary mr-3" onClick={this.props.onHide}>Close</Button>
-<a href="/">or Login</a> 
+</Col>
+
+<Col sm={3} lg={3}>
+<Link className="nav-link text-dark" to="/Login">  
+
+
+or Login
+</Link>
+</Col>
+
+</Row>
+
 </LocalForm>
               </Row>
             </Container>

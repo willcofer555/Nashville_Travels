@@ -7,7 +7,7 @@ h2, h5, h6, li, span{
 }
 
 .innerJumbo {
-    height:50vh;
+    height:65vh;
     
 }
 .row-content {
@@ -19,10 +19,13 @@ h2, h5, h6, li, span{
 #heading {
     width:100%;
     padding-top:5px;
-    background-image: url(../img/nville.jpg); 
+    background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 33.74%, rgba(0, 0, 0, 0) 62.9%), url(../img/lance_nashville.jpg) ; 
     background-size: cover ;
-    
+    background-position:33% 0%;
+    max-height: 100rem;
+   
 }
+
 
 #deadheading {
     width:100%;
@@ -30,6 +33,17 @@ h2, h5, h6, li, span{
     background-size: cover ;
     
 }
+
+.hc {
+
+color: white;
+font-family: 'Nunito', sans-serif;
+font-style: normal;
+font-weight: ;
+
+}
+
+
 
 
 #contact_header {
@@ -40,7 +54,7 @@ h2, h5, h6, li, span{
 
 
 #innerJumboContainer {
-    padding:5rem;
+    padding:1rem;
 }
 #header_pic {
     height: 52.5vh;

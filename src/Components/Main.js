@@ -33,6 +33,11 @@ handleApply(event, picker) {
       endDate: picker.endDate,
     });
   }
+  componentDidMount() {
+      if (localStorage.token) {
+          console.log('User is logged in');
+      }
+  }
   
  componentDidUpdate() {
      console.log(this.state.startDate.format('YYYYMMDD'));
