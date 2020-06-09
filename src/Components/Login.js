@@ -43,7 +43,7 @@ class Login extends React.Component {
     const { loggingIn } = this.props;
     const { email, password, submitted } = this.state;
     return (
-      <div className="container-fluid blue bg-primary">
+      <div className="container-fluid blue bg-primary ">
         <Nav />
         <Row>
           <form onSubmit={this.handleSubmit} className="formWidth">

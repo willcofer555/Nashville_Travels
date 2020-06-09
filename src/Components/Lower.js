@@ -34,7 +34,9 @@ export function Lower(props, date) {
                     <div className="col col-sm-12">{props.children}</div>
                   </div>
                   <div className="row form-group">
-                    <div className="col col-sm-12">{date}</div>
+                    <div className="col col-sm-12">
+                      
+                    </div>
                   </div>
                   <div className="row">
                     <div className="col">

@@ -29,7 +29,7 @@ app.use(bodyParser.json());
     return  db.get(`SELECT * FROM Users WHERE email = ?`,[email], (err, row) => {
         if (err) {
             console.log(err)
-        } else if (row) {
+        } if (row) {
             return row
         }
     });
@@ -118,26 +118,23 @@ app.post('/users/login', (req, res) => {
     let password  =  req.body.password;
     if (email) {
 
-         db.get(`SELECT * FROM Users WHERE email = ?`,[email], (err, user) => {
+         db.get(`SELECT * FROM Users WHERE password = ? AND email = ?`,[password,email], (err, user) => {
             if (err) {
                 console.log(err)
             } else if (user) {
-            
+                
                 const  expiresIn  =  24  *  60  *  60;
                 const  accessToken  =  jwt.sign({ id: user.id }, SECRET_KEY, {
                 expiresIn:  expiresIn
                     
             });
-
-            res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn, "password": user.password});
+           
+            res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn, "password": password, });
                 
-            }
-
-            
+            }       
     })
+    } 
     
-    }
-
     /*
     findUserByEmail(email, (err, user)=>{
         if (err) return  res.status(500).send('Server error!');
@@ -148,7 +145,7 @@ app.post('/users/login', (req, res) => {
 
         //compare entered password to db password
 
-        const  result  =  bcrypt.compareSync(password, user.password);
+        const  result  =  bcrypt.compare(password, user.password);
 
         if(!result) return  res.status(401).send('Password not valid!');
 
@@ -159,38 +156,9 @@ app.post('/users/login', (req, res) => {
 
         res.status(200).send({ "user":  user, "access_token":  accessToken, "expires_in":  expiresIn});
 
-    }); 
-
-    */
-
-
-
-    
+    }); */
+ 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
